@@ -85,16 +85,16 @@ class StudentCMS:
             print()
 
     def save_student(self):
-        with open("./stu_file.txt","w",encoding="utf-8") as stu_f:
+        with open("stu_file.txt", "w", encoding="utf-8") as stu_f:
             stu_dict=[stu.__dict__ for stu in self.student_list ]
             json.dump(stu_dict,stu_f,ensure_ascii=False)
     def load_student(self):
         try:
-            with open("./stu_file.txt","r",encoding="utf-8") as stu_f:
+            with open("stu_file.txt", "r", encoding="utf-8") as stu_f:
                 stu_list=json.load(stu_f)
                 self.student_list=[Student(**stu) for stu in stu_list ]
         except:
-            stu_f=open("./stu_file.txt","w",encoding="utf-8")
+            stu_f=open("stu_file.txt", "w", encoding="utf-8")
 
 
 
