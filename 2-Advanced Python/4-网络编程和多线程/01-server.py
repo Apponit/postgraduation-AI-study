@@ -16,8 +16,9 @@ server_socket.listen(5)
 accept_socket, client_info = server_socket.accept()
 # 5.发送信息  
 # 参数：发送的字节数据(要转成二进制)  
-accept_socket.send(b"hello")
+
 while 1:
+    accept_socket.send(b"hello")
     msg = input("请输入要发送给客户端的信息：")
     # b“”将str转换成二进制，但是能是AscII码，而encode()可以将汉字转换成二进制
     accept_socket.send(msg.encode("utf-8"))
@@ -26,4 +27,4 @@ while 1:
     # 返回参数：接受到的字节数据。.  
     print(accept_socket.recv(1024).decode('utf-8'))
 # 7.关闭socket，一般不关闭服务器的那个socket  
-accept_socket.close()
+# accept_socket.close()
